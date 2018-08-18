@@ -1,0 +1,15 @@
+/JellingStone/30:ae:a4:6c:69:9c: {
+        "uuid": "fd:a5:06:93:a4:e2:4f:b1:af:cf:c6:eb:07:64:78:25",
+        "major":        4055,
+        "minor":        3,
+        "timestmp":     "2018-08-18T18:30:21Z",
+        "comment":      "Heimersdorf - Schreibtisch",
+        "data": [{
+                        "min":  -87,
+                        "max":  -76,
+                        "avg":  -81,
+                        "remoteRssi":   -59,
+                        "major":        4055,
+                        "minor":        2,
+                        "uuid": "fd:a5:06:93:a4:e2:4f:b1:af:cf:c6:eb:07:64:78:25"
+                }]
