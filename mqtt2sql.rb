@@ -3,12 +3,15 @@ require 'mqtt'
 require 'json'
 require './model.rb'
 
-def handle(msg)
+MQTT_TOPIC_PREFIX = 'JellingStone/'
+
+def handle(tpc, msg)
   d = JSON.parse(msg)
-  se = StoneEvent.new(uuid: d['uuid'],
+  se = StoneEvent.new(mac: tpc[MQTT_TOPIC_PREFIX.length,17],
+    uuid: d['uuid'],
     major: d['major'],
     minor: d['minor'],
-    timestmp: d['timestmp'],
+    timestmp: d['timestamp'],
     comment: d['comment'])
   se.sensor_contacts = []
   d['data'].each do |c|
@@ -32,10 +35,10 @@ end
 #end
 
 # Subscribe example
-MQTT::Client.connect('mqtts://t470:@mqtt.jluehr.de') do |c|
+MQTT::Client.connect(ENV['MQTT_HOST']) do |c|
   # If you pass a block to the get method, then it will loop
-  c.get('/JellingStone/#') do |topic,message|
+  c.get(MQTT_TOPIC_PREFIX + '+') do |topic,message|
     #puts "#{topic}: #{message}"
-    handle(message)
+    handle(topic, message)
   end
 end

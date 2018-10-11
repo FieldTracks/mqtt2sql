@@ -22,6 +22,7 @@ USE `jellingstone` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `jellingstone`.`stone_events` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `mac` VARCHAR(17) NULL,
   `major` INT NULL,
   `minor` INT NULL,
   `timestmp` DATETIME NULL,

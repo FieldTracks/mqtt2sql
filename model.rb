@@ -3,11 +3,11 @@ require 'mysql2'
 
 ActiveRecord::Base.establish_connection(
   adapter: 'mysql2',
-  database: 'jellingstone',
-  encoding: 'utf8',
-  username: 'jellingstone',
-  host: 'localhost',
-  password: ''
+  host: ENV['DB_HOST'],
+  username: ENV['DB_USER'],
+  password: ENV['DB_PASS'],
+  database: ENV['DB_DB'],
+  encoding: 'utf8'
 )
 
 class StoneEvent < ActiveRecord::Base
